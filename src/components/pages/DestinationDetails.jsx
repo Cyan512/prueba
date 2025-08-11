@@ -9,7 +9,7 @@ export default function DestinationDetails() {
   const { slug } = useParams();
 
   if (slug === "cusco-city-tour") {
-    return <TourPage data={cuscoCityTour} />;
+    return <TourPage namespace="global" />;
   }
 
   if (slug === "laguna-humantay") {

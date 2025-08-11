@@ -1,3 +1,78 @@
 {
-        "title": "CUSCO CITY TOUR"
+        "tour": {
+                "title": "CUSCO CITY TOUR",
+                "overview": "Dare to visit the archaeological capital of America, walking through its colonial streets, extensive stone walls, ancient Andean temples, picturesque colonial art, and lots of culture and information. This wonderful half-day tour allows you to enter the amazing cathedral of the city of Cusco, which houses incredible examples of the great Cusco art school, a product of Andean syncretism. Also, you will have the opportunity to visit the most important Inca temple, Qorikancha, dedicated to the worship of the sun god, where you will walk among five main shrines that have withstood the passage of time—one of the best Andean structures! Furthermore, you will discover four surprising ancient constructions located amid forests of queuña and eucalyptus trees, full of secrets and hidden history, waiting for us to explore.",
+                "itinerary": [
+                        {
+                                "title": "FROM THE HOTEL TO THE CATHEDRAL",
+                                "desc": "This tour begins with pick-up from your hotel in Cusco at 1:30 p.m. to head towards the beautiful main basilica of the city, where you will find artistic expressions crafted between the 16th and 20th centuries, including paintings from the Cusco art school and many other fascinating syncretic Andean paintings, such as the Last Supper featuring Andean world symbols.",
+                                "time": "1:30 PM",
+                                "icon": "🏛️",
+                                "image": "https://images.unsplash.com/photo-1555961413-c7c8e6fd3b80?w=800&q=80"
+                        },
+                        {
+                                "title": "FROM THE CATHEDRAL TO QORIKANCHA",
+                                "desc": "Then we will walk through ancient streets that will lead you to the Qorikancha temple, the most revered temple throughout the Tawantinsuyo Empire. Did you know that the mummies of all Inca rulers were located inside? Today, you can still enter some very sacred spaces dating back to ancient times.",
+                                "time": "2:15 PM",
+                                "icon": "⛩️",
+                                "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80"
+                        },
+                        {
+                                "title": "FROM QORIKANCHA TO SAQSAYHUAMAN",
+                                "desc": "Next, we will take the bus to visit the great fortress of Saqsayhuaman (3,700 m.a.s.l. / 12,139 feet above sea level), which is shaped by a zigzagging wall with three levels and contains huge Inca stone blocks weighing over 60 tons.",
+                                "time": "3:00 PM",
+                                "icon": "🏰",
+                                "image": "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&q=80"
+                        },
+                        {
+                                "title": "FROM SAQSAYHUAMAN TO QENQO",
+                                "desc": "Afterwards, we will visit the rocky outcrop of Qenqo (3,580 m. / 11,745 feet), known as the temple of Mother Earth (Pachamama), where the Quechua ancestors sculpted the stone as if it were butter, creating exquisite forms in this sacred space and its underground passages.",
+                                "time": "3:45 PM",
+                                "icon": "🗿",
+                                "image": "https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=800&q=80"
+                        },
+                        {
+                                "title": "FROM QENQO TO PUKA PUKARA",
+                                "desc": "Then we will continue the tour to the archaeological complex of Puka Pukara (Red Fortress). This ancient structure has a circular shape and was possibly used to control Inca roads towards Pisac and the Antisuyo.",
+                                "time": "4:30 PM",
+                                "icon": "🔴",
+                                "image": "https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80"
+                        },
+                        {
+                                "title": "FROM PUKA PUKARA TO TAMBOMACHAY",
+                                "desc": "Located 25 meters away, our last stop is Tambomachay (3,850 m. / 12,631 feet). Here you will find agricultural terraces, ceremonial niches, and sacred water fountains. You will even have the opportunity to walk through a beautiful queuña forest, the native tree of Cusco.",
+                                "time": "5:15 PM",
+                                "icon": "💧",
+                                "image": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=800&q=80"
+                        },
+                        {
+                                "title": "FROM TAMBOMACHAY TO THE HOTEL",
+                                "desc": "Returning to Cusco city, but if you wish, we can stop at an Andean textiles interpretation center where you can appreciate the famous Andean camelids. You will also be able to buy souvenirs to remember this unforgettable day. You will finally arrive at your hotel around 6:00 p.m.",
+                                "time": "6:00 PM",
+                                "icon": "🏨",
+                                "image": "https://images.unsplash.com/photo-1555854877-bab0e460b281?w=800&q=80"
+                        }
+                ],
+                "recommendations": [
+                        "Preferably do this during the dry season in Cusco (April – October)",
+                        "Hat or cap for sun protection",
+                        "Windbreaker",
+                        "Sunscreen",
+                        "Rain poncho",
+                        "Comfortable shoes",
+                        "Extra money",
+                        "Camera or cellphone with enough battery and storage"
+                ],
+                "includes": [
+                        "Touristic bus round trip",
+                        "Professional guide"
+                ],
+                "notIncludes": [
+                        "Tourist Ticket (BTG)",
+                        "Food",
+                        "Drinks",
+                        "Souvenirs",
+                        "Tips"
+                ]
+        }
 }

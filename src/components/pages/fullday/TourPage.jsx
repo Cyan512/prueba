@@ -1,9 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle, XCircle, Lightbulb } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-export default function TourPage({ data }) {
-  const { title, overview, itinerary, recommendations, includes, notIncludes } = data;
+export default function TourPage({ namespace }) {
+  const { t } = useTranslation(namespace);
+
+  // Se espera que en i18n la estructura sea como:
+  // tour.title, tour.overview, tour.itinerary[0].title, etc.
+
+  // Número de items en itinerario:
+  const itineraryLength = t('tour.itinerary.length', { defaultValue: 0 });
+
+  // Para manejar longitud cuando no la tengas, usa un valor fijo o
+  // alternativamente mapea por índice hasta que no encuentre un título.
+  // Aquí pongo una forma simple de usar un array ficticio para iterar:
+  const itineraryIndexes = Array.from(
+    { length: itineraryLength || 7 }, // o la cantidad fija que sabes que hay
+    (_, i) => i
+  );
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50 overflow-hidden">
@@ -26,13 +41,14 @@ export default function TourPage({ data }) {
           transition={{ duration: 1 }}
         >
           <h1 className="text-5xl md:text-7xl font-extrabold text-blue-900 leading-tight">
-            {title}
+            {t("tour.title")}
           </h1>
-          <p className="mt-6 text-lg text-gray-600 max-w-lg">{overview}</p>
+          <p className="mt-6 text-lg text-gray-600 max-w-lg">{t("tour.overview")}</p>
           <button className="mt-8 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg transition-all">
-            Reservar ahora
+            {t("tour.bookNow", "Reservar ahora")}
           </button>
         </motion.div>
+
         {/* Imagen */}
         <motion.div
           className="flex-1"
@@ -42,8 +58,8 @@ export default function TourPage({ data }) {
         >
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <img
-              src={itinerary?.[0]?.image}
-              alt={title}
+              src={t("tour.itinerary.0.image")}
+              alt={t("tour.title")}
               className="object-cover w-full h-[450px] transform hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -53,25 +69,35 @@ export default function TourPage({ data }) {
       {/* ITINERARIO COMO CARRUSEL */}
       <section className="relative z-10 py-20 bg-white/70 backdrop-blur-sm">
         <h2 className="text-4xl font-bold text-center text-blue-900 mb-12">
-          Itinerario
+          {t("tour.itineraryTitle", "Itinerario")}
         </h2>
         <div className="flex gap-8 overflow-x-auto px-6 scrollbar-thin scrollbar-thumb-blue-300">
-          {itinerary.map((item, idx) => (
-            <motion.div
-              key={idx}
-              className="min-w-[300px] bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-            >
-              <img src={item.image} alt={item.title} className="h-48 w-full object-cover" />
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-blue-800 flex items-center gap-2">
-                  {item.icon} {item.title}
-                </h3>
-                <p className="text-sm text-gray-500">{item.time}</p>
-                <p className="mt-2 text-gray-600">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+          {itineraryIndexes.map((idx) => {
+            // Intentamos leer datos para cada índice, si no existe title, no mostramos
+            const title = t(`tour.itinerary.${idx}.title`, { defaultValue: null });
+            if (!title) return null;
+
+            return (
+              <motion.div
+                key={idx}
+                className="min-w-[300px] bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <img
+                  src={t(`tour.itinerary.${idx}.image`)}
+                  alt={title}
+                  className="h-48 w-full object-cover"
+                />
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-blue-800 flex items-center gap-2">
+                    {t(`tour.itinerary.${idx}.icon`)} {title}
+                  </h3>
+                  <p className="text-sm text-gray-500">{t(`tour.itinerary.${idx}.time`)}</p>
+                  <p className="mt-2 text-gray-600">{t(`tour.itinerary.${idx}.desc`)}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
@@ -80,19 +106,25 @@ export default function TourPage({ data }) {
         <div className="max-w-6xl mx-auto px-6 grid gap-12 md:grid-cols-3 text-center">
           {[
             {
-              title: "Recomendaciones",
+              title: t("tour.recommendationsTitle", "Recomendaciones"),
               icon: <Lightbulb className="w-10 h-10" />,
-              items: recommendations
+              items: Array.from({ length: t("tour.recommendations.length", { defaultValue: 0 }) }).map(
+                (_, i) => t(`tour.recommendations.${i}`)
+              )
             },
             {
-              title: "Incluye",
+              title: t("tour.includesTitle", "Incluye"),
               icon: <CheckCircle className="w-10 h-10" />,
-              items: includes
+              items: Array.from({ length: t("tour.includes.length", { defaultValue: 0 }) }).map(
+                (_, i) => t(`tour.includes.${i}`)
+              )
             },
             {
-              title: "No incluye",
+              title: t("tour.notIncludesTitle", "No incluye"),
               icon: <XCircle className="w-10 h-10" />,
-              items: notIncludes
+              items: Array.from({ length: t("tour.notIncludes.length", { defaultValue: 0 }) }).map(
+                (_, i) => t(`tour.notIncludes.${i}`)
+              )
             }
           ].map((sec, i) => (
             <motion.div
